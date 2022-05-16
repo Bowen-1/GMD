@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class food : MonoBehaviour
+public class Food : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

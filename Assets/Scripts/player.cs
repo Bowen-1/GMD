@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class player : MonoBehaviour
+public class Player : MonoBehaviour
 {
 
      float backspeed=0.8f;//backpeed

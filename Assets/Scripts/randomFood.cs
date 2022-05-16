@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class randomFood : MonoBehaviour
+public class RandomFood : MonoBehaviour
 {
 
     float totalTime;
