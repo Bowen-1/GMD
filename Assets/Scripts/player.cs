@@ -13,6 +13,10 @@ public class player : MonoBehaviour
 
     bool YoYo;//boolean of up and down
 
+    public float timeInvincible = 1.0f;
+    bool isInvincible;
+    float invincibleTimer;
+
     Animator animator;
 
 
@@ -57,6 +61,13 @@ public class player : MonoBehaviour
         }
         animator.SetFloat("pao", fowerspeed);//hero knight animation for running
         transform.Translate(Vector2.left * (backspeed - fowerspeed)*4 * Time.deltaTime);  //hero knight moving
+
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+                isInvincible = false;
+        }
     }
 
 
@@ -101,7 +112,7 @@ public class player : MonoBehaviour
     void UISwitch()
     {
         Energyui.fillAmount = Energy / 100;
-        PointsText.text = "fraction:" + Points;
+        PointsText.text = "Score:" + Points;
         if (Energy <= 0)
         {
             success.SetActive(true);
@@ -127,8 +138,14 @@ public class player : MonoBehaviour
         }
         if (collision.gameObject.tag == "food")
         {
-            if(Energy<100)
-            Energy+=10;
+            if (Energy < 100)
+            {
+                if (isInvincible) return;
+
+                Energy += 10;
+                isInvincible = true;
+                invincibleTimer = timeInvincible;
+            }
             Destroy(collision.gameObject);
         }
     }

@@ -18,6 +18,7 @@ public class Volume : MonoBehaviour
     {
         
     }
+
     public void ChangeVolume()
     {
         audioSource.volume = Slider.value;

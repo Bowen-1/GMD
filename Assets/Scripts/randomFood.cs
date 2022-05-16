@@ -5,7 +5,9 @@ using UnityEngine;
 public class randomFood : MonoBehaviour
 {
 
-    float timer;//食物生成间隔
+    float totalTime;
+    float timer;
+    float interval = 3f;
 
     public GameObject[] foods;
 
@@ -18,9 +20,19 @@ public class randomFood : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;//随时间增加
+        totalTime += Time.deltaTime;
+        timer += Time.deltaTime;
+
+        if (totalTime > 10f)
+        {
+            if (interval > 2f) {
+                interval = interval - 0.3f;
+                totalTime = 0;
+            }
+        }
+
         //生成物体
-        if (timer > 3f)
+        if (timer > interval)
         {
            GameObject food= Instantiate(foods[Random.Range(0, foods.Length)], this.transform);
             food.transform.position = new Vector3(Random.Range(9.5f, 19f), -1);
