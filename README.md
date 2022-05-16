@@ -1,2 +1,1 @@
-# GMD
-GMD
+# GMDProject
