@@ -9,4 +9,3 @@ Hero Knight: https://assetstore.unity.com/packages/2d/characters/hero-knight-pix
 
 WebGL:
 https://bowen-1.github.io/GMD/
-(might not work for some reason)
